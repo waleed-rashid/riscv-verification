@@ -1,0 +1,19 @@
+# Simulation outputs
+*.vcd
+*.vvp
+*_sim
+*.out
+
+# Build files
+*.o
+*.a
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
