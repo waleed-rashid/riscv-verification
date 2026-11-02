@@ -1,0 +1,3 @@
+$ /usr/bin/python3 /home/waleed/riscv-verification/scripts/randomized_test.py --count 100 --seed 50
+RANDOM TEST PASS: seed=50 count=100
+final_pc=0x00000190 x0=0x00000000

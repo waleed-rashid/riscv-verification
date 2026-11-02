@@ -1,0 +1,142 @@
+{
+  "started_at": "2026-10-30T01:10:55.105032+00:00",
+  "finished_at": "2026-10-30T01:10:55.782449+00:00",
+  "configuration": {
+    "random_tests": 10,
+    "base_seed": 42,
+    "instructions_per_random_test": 100
+  },
+  "total_tests": 14,
+  "passed": 14,
+  "failed": 0,
+  "pass_rate": 100.0,
+  "runtime_seconds": 0.6773592790000293,
+  "results": [
+    {
+      "name": "alu_directed",
+      "category": "directed",
+      "passed": true,
+      "runtime_seconds": 0.00831941700016614,
+      "seed": null,
+      "log_file": "results/logs/alu_directed.log",
+      "error": ""
+    },
+    {
+      "name": "cpu_directed",
+      "category": "directed",
+      "passed": true,
+      "runtime_seconds": 0.010503622999749496,
+      "seed": null,
+      "log_file": "results/logs/cpu_directed.log",
+      "error": ""
+    },
+    {
+      "name": "phase2_structured",
+      "category": "directed",
+      "passed": true,
+      "runtime_seconds": 0.01683791999994355,
+      "seed": null,
+      "log_file": "results/logs/phase2_structured.log",
+      "error": ""
+    },
+    {
+      "name": "reference_model",
+      "category": "reference-model",
+      "passed": true,
+      "runtime_seconds": 0.042768076000356814,
+      "seed": null,
+      "log_file": "results/logs/reference_model.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_42",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.058985650000067835,
+      "seed": 42,
+      "log_file": "results/logs/random_seed_42.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_43",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.05869003599991629,
+      "seed": 43,
+      "log_file": "results/logs/random_seed_43.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_44",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.06186869900011516,
+      "seed": 44,
+      "log_file": "results/logs/random_seed_44.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_45",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.06363907399963864,
+      "seed": 45,
+      "log_file": "results/logs/random_seed_45.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_46",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.059221059000265086,
+      "seed": 46,
+      "log_file": "results/logs/random_seed_46.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_47",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.0616213529997367,
+      "seed": 47,
+      "log_file": "results/logs/random_seed_47.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_48",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.05827274200009924,
+      "seed": 48,
+      "log_file": "results/logs/random_seed_48.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_49",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.05899327199995241,
+      "seed": 49,
+      "log_file": "results/logs/random_seed_49.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_50",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.05991271799985043,
+      "seed": 50,
+      "log_file": "results/logs/random_seed_50.log",
+      "error": ""
+    },
+    {
+      "name": "random_seed_51",
+      "category": "randomized",
+      "passed": true,
+      "runtime_seconds": 0.05467758499980846,
+      "seed": 51,
+      "log_file": "results/logs/random_seed_51.log",
+      "error": ""
+    }
+  ]
+}

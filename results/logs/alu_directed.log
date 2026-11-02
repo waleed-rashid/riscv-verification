@@ -1,0 +1,10 @@
+$ iverilog -g2012 -o /tmp/vscode-agent-codex-sandbox-zUMKw4/riscv-alu_directed-3fp_rz5n/alu_directed.sim /home/waleed/riscv-verification/rtl/alu.sv /home/waleed/riscv-verification/tb/alu_tb.sv
+
+$ vvp /tmp/vscode-agent-codex-sandbox-zUMKw4/riscv-alu_directed-3fp_rz5n/alu_directed.sim
+ADD PASSED
+SUB PASSED
+AND PASSED
+OR PASSED
+XOR PASSED
+ALU TEST COMPLETE: PASS
+/home/waleed/riscv-verification/tb/alu_tb.sv:105: $finish called at 50000 (1ps)

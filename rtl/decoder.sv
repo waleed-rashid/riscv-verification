@@ -43,39 +43,42 @@ module decoder (
 
             7'b0110011: begin
 
-                reg_write = 1'b1;
                 alu_src = 1'b0;
 
-                case (funct3)
+                // Only the exact supported R-type encodings are valid.
+                // Keeping reg_write deasserted until a match prevents
+                // unsupported encodings from being treated as ADD.
+                case ({funct7, funct3})
 
-                    // ADD / SUB
-                    3'b000: begin
-
-                        if (funct7 == 7'b0000000)
-                            alu_control = 3'b000; // ADD
-
-                        else if (funct7 == 7'b0100000)
-                            alu_control = 3'b001; // SUB
-
-                        else
-                            alu_control = 3'b000;
-
+                    {7'b0000000, 3'b000}: begin
+                        reg_write = 1'b1;
+                        alu_control = 3'b000; // ADD
                     end
 
-                    // XOR
-                    3'b100:
-                        alu_control = 3'b100;
+                    {7'b0100000, 3'b000}: begin
+                        reg_write = 1'b1;
+                        alu_control = 3'b001; // SUB
+                    end
 
-                    // OR
-                    3'b110:
-                        alu_control = 3'b011;
+                    {7'b0000000, 3'b111}: begin
+                        reg_write = 1'b1;
+                        alu_control = 3'b010; // AND
+                    end
 
-                    // AND
-                    3'b111:
-                        alu_control = 3'b010;
+                    {7'b0000000, 3'b110}: begin
+                        reg_write = 1'b1;
+                        alu_control = 3'b011; // OR
+                    end
 
-                    default:
+                    {7'b0000000, 3'b100}: begin
+                        reg_write = 1'b1;
+                        alu_control = 3'b100; // XOR
+                    end
+
+                    default: begin
+                        reg_write = 1'b0;
                         alu_control = 3'b000;
+                    end
 
                 endcase
 
@@ -88,15 +91,17 @@ module decoder (
 
             7'b0010011: begin
 
-                reg_write = 1'b1;
-                alu_src = 1'b1;
+                // ADDI is the only supported I-type operation. Check funct3
+                // explicitly so other I-type instructions do not write back.
+                if (funct3 == 3'b000) begin
+                    reg_write = 1'b1;
+                    alu_src = 1'b1;
+                    alu_control = 3'b000; // ADD
 
-                // ADD
-                alu_control = 3'b000;
-
-                // Sign extend 12-bit immediate
-                immediate = {{20{instruction[31]}},
-                             instruction[31:20]};
+                    // Sign extend 12-bit immediate
+                    immediate = {{20{instruction[31]}},
+                                 instruction[31:20]};
+                end
 
             end
 

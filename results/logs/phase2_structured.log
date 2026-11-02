@@ -1,0 +1,27 @@
+$ iverilog -g2012 -s phase2_tb -o /tmp/vscode-agent-codex-sandbox-zUMKw4/riscv-phase2_structured-o7mzq7mg/phase2_structured.sim /home/waleed/riscv-verification/rtl/alu.sv /home/waleed/riscv-verification/rtl/register_file.sv /home/waleed/riscv-verification/rtl/decoder.sv /home/waleed/riscv-verification/rtl/cpu.sv /home/waleed/riscv-verification/tb/generator.sv /home/waleed/riscv-verification/tb/driver.sv /home/waleed/riscv-verification/tb/monitor.sv /home/waleed/riscv-verification/tb/scoreboard.sv /home/waleed/riscv-verification/tb/assertions.sv /home/waleed/riscv-verification/tb/coverage.sv /home/waleed/riscv-verification/tb/phase2_tb.sv
+
+$ vvp /tmp/vscode-agent-codex-sandbox-zUMKw4/riscv-phase2_structured-o7mzq7mg/phase2_structured.sim
+VCD info: dumpfile phase2.vcd opened for output.
+MONITOR pc=00000000 instr=00a00093 rs1=0 rs2=10 rd=1 alu=0 result=0000000a we=1 wb=0000000a
+MONITOR pc=00000004 instr=01400113 rs1=0 rs2=20 rd=2 alu=0 result=00000014 we=1 wb=00000014
+MONITOR pc=00000008 instr=002081b3 rs1=1 rs2=2 rd=3 alu=0 result=0000001e we=1 wb=0000001e
+MONITOR pc=0000000c instr=40118233 rs1=3 rs2=1 rd=4 alu=1 result=00000014 we=1 wb=00000014
+MONITOR pc=00000010 instr=0020f2b3 rs1=1 rs2=2 rd=5 alu=2 result=00000000 we=1 wb=00000000
+MONITOR pc=00000014 instr=0020e333 rs1=1 rs2=2 rd=6 alu=3 result=0000001e we=1 wb=0000001e
+MONITOR pc=00000018 instr=0020c3b3 rs1=1 rs2=2 rd=7 alu=4 result=0000001e we=1 wb=0000001e
+MONITOR pc=0000001c instr=07b00413 rs1=0 rs2=27 rd=8 alu=0 result=0000007b we=1 wb=0000007b
+MONITOR pc=00000020 instr=00209433 rs1=1 rs2=2 rd=8 alu=0 result=0000001e we=0 wb=0000001e
+SCOREBOARD: PASS (10 checks)
+MONITOR pc=00000024 instr=00141413 rs1=8 rs2=1 rd=8 alu=0 result=00000085 we=0 wb=00000085
+COVERAGE SUMMARY
+  samples                 = 10
+  operations hit          = 6/6
+  registers seen all ports= 1/32
+  immediate signs hit     = 1/2
+  dependencies            = 2
+  x0 operand scenarios    = 3
+  register writebacks     = 8
+  unsupported instructions= 2
+  reset cycles            = 1
+PHASE 2 TEST COMPLETE: PASS
+/home/waleed/riscv-verification/tb/phase2_tb.sv:111: $finish called at 105000 (1ps)

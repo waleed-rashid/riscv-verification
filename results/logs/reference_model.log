@@ -1,0 +1,11 @@
+$ /usr/bin/python3 /home/waleed/riscv-verification/scripts/validate_reference_model.py
+REFERENCE MODEL: model-only validation PASS
+REFERENCE MODEL: RTL comparison PASS
+x1: expected=10 actual=10
+x2: expected=20 actual=20
+x3: expected=30 actual=30
+x4: expected=20 actual=20
+x5: expected=0 actual=0
+x6: expected=30 actual=30
+x7: expected=30 actual=30
+x8: expected=123 actual=123

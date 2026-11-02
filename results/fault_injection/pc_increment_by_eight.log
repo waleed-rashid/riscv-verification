@@ -1,0 +1,8 @@
+VCD info: dumpfile phase2.vcd opened for output.
+MONITOR pc=00000000 instr=00a00093 rs1=0 rs2=10 rd=1 alu=0 result=0000000a we=1 wb=0000000a
+SCOREBOARD ERROR: PC expected=00000004 got=00000008
+SCOREBOARD ERROR: pc=00000008 write expected x3=0000001e got x3=0000000a
+MONITOR pc=00000008 instr=002081b3 rs1=1 rs2=2 rd=3 alu=0 result=0000000a we=1 wb=0000000a
+ASSERTION FAILED: PC did not increment by four
+FATAL: /home/waleed/riscv-verification/tb/assertions.sv:34: CPU assertion failure
+       Time: 25000  Scope: phase2_tb.assertions.fail_assertion

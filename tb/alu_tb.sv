@@ -6,6 +6,7 @@ module alu_tb;
     logic [31:0] b;
     logic [2:0]  alu_control;
     logic [31:0] result;
+    integer failures;
 
     alu dut (
         .a(a),
@@ -22,6 +23,8 @@ module alu_tb;
 
     initial begin
 
+        failures = 0;
+
         // ADD
         a = 32'd10;
         b = 32'd20;
@@ -30,8 +33,10 @@ module alu_tb;
 
         if (result == 32'd30)
             $display("ADD PASSED");
-        else
+        else begin
             $display("ADD FAILED: got %d", result);
+            failures = failures + 1;
+        end
 
 
         // SUB
@@ -42,8 +47,10 @@ module alu_tb;
 
         if (result == 32'd10)
             $display("SUB PASSED");
-        else
+        else begin
             $display("SUB FAILED: got %d", result);
+            failures = failures + 1;
+        end
 
 
         // AND
@@ -54,8 +61,10 @@ module alu_tb;
 
         if (result == 32'h00F0)
             $display("AND PASSED");
-        else
+        else begin
             $display("AND FAILED: got %h", result);
+            failures = failures + 1;
+        end
 
 
         // OR
@@ -66,8 +75,10 @@ module alu_tb;
 
         if (result == 32'hF0F0)
             $display("OR PASSED");
-        else
+        else begin
             $display("OR FAILED: got %h", result);
+            failures = failures + 1;
+        end
 
 
         // XOR
@@ -78,11 +89,18 @@ module alu_tb;
 
         if (result == 32'hF00F)
             $display("XOR PASSED");
-        else
+        else begin
             $display("XOR FAILED: got %h", result);
+            failures = failures + 1;
+        end
 
 
-        $display("ALU TEST COMPLETE");
+        if (failures == 0)
+            $display("ALU TEST COMPLETE: PASS");
+        else begin
+            $display("ALU TEST COMPLETE: FAIL (%0d failures)", failures);
+            $fatal(1, "ALU test failed");
+        end
 
         $finish;
 

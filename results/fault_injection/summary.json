@@ -1,0 +1,30 @@
+{
+  "total_faults": 3,
+  "detected_faults": 3,
+  "results": [
+    {
+      "name": "alu_add_as_sub",
+      "description": "Replace ALU ADD with subtraction.",
+      "detected": true,
+      "runtime_seconds": 0.014682999999877211,
+      "detection_source": "scoreboard",
+      "output": "VCD info: dumpfile phase2.vcd opened for output.\nMONITOR pc=00000000 instr=00a00093 rs1=0 rs2=10 rd=1 alu=0 result=fffffff6 we=1 wb=fffffff6\nSCOREBOARD ERROR: pc=00000000 write expected x1=0000000a got x1=fffffff6\nSCOREBOARD ERROR: pc=00000004 write expected x2=00000014 got x2=ffffffec\nMONITOR pc=00000004 instr=01400113 rs1=0 rs2=20 rd=2 alu=0 result=ffffffec we=1 wb=ffffffec\nMONITOR pc=00000008 instr=002081b3 rs1=1 rs2=2 rd=3 alu=0 result=0000000a we=1 wb=0000000a\nSCOREBOARD ERROR: pc=00000008 write expected x3=0000001e got x3=0000000a\nMONITOR pc=0000000c instr=40118233 rs1=3 rs2=1 rd=4 alu=1 result=00000014 we=1 wb=00000014\nMONITOR pc=00000010 instr=0020f2b3 rs1=1 rs2=2 rd=5 alu=2 result=ffffffe4 we=1 wb=ffffffe4\nSCOREBOARD ERROR: pc=00000010 write expected x5=00000000 got x5=ffffffe4\nSCOREBOARD ERROR: pc=00000014 write expected x6=0000001e got x6=fffffffe\nMONITOR pc=00000014 instr=0020e333 rs1=1 rs2=2 rd=6 alu=3 result=fffffffe we=1 wb=fffffffe\nMONITOR pc=00000018 instr=0020c3b3 rs1=1 rs2=2 rd=7 alu=4 result=0000001a we=1 wb=0000001a\nSCOREBOARD ERROR: pc=00000018 write expected x7=0000001e got x7=0000001a\nSCOREBOARD ERROR: pc=0000001c write expected x8=0000007b got x8=ffffff85\nMONITOR pc=0000001c instr=07b00413 rs1=0 rs2=27 rd=8 alu=0 result=ffffff85 we=1 wb=ffffff85\nMONITOR pc=00000020 instr=00209433 rs1=1 rs2=2 rd=8 alu=0 result=0000000a we=0 wb=0000000a\nSCOREBOARD: FAIL (7 failures)\nMONITOR pc=00000024 instr=00141413 rs1=8 rs2=1 rd=8 alu=0 result=ffffff8f we=0 wb=ffffff8f\nCOVERAGE SUMMARY\n  samples                 = 10\n  operations hit          = 6/6\n  registers seen all ports= 1/32\n  immediate signs hit     = 1/2\n  dependencies            = 2\n  x0 operand scenarios    = 3\n  register writebacks     = 8\n  unsupported instructions= 2\n  reset cycles            = 1\nFATAL: /home/waleed/riscv-verification/tb/phase2_tb.sv:108: Phase 2 scoreboard failed\n       Time: 105000  Scope: phase2_tb\n"
+    },
+    {
+      "name": "pc_increment_by_eight",
+      "description": "Change PC increment from four to eight bytes.",
+      "detected": true,
+      "runtime_seconds": 0.013506188000064867,
+      "detection_source": "SystemVerilog assertion",
+      "output": "VCD info: dumpfile phase2.vcd opened for output.\nMONITOR pc=00000000 instr=00a00093 rs1=0 rs2=10 rd=1 alu=0 result=0000000a we=1 wb=0000000a\nSCOREBOARD ERROR: PC expected=00000004 got=00000008\nSCOREBOARD ERROR: pc=00000008 write expected x3=0000001e got x3=0000000a\nMONITOR pc=00000008 instr=002081b3 rs1=1 rs2=2 rd=3 alu=0 result=0000000a we=1 wb=0000000a\nASSERTION FAILED: PC did not increment by four\nFATAL: /home/waleed/riscv-verification/tb/assertions.sv:34: CPU assertion failure\n       Time: 25000  Scope: phase2_tb.assertions.fail_assertion\n"
+    },
+    {
+      "name": "unsupported_rtype_writes",
+      "description": "Allow unsupported R-type writes.",
+      "detected": true,
+      "runtime_seconds": 0.0185003050000887,
+      "detection_source": "SystemVerilog assertion",
+      "output": "VCD info: dumpfile phase2.vcd opened for output.\nMONITOR pc=00000000 instr=00a00093 rs1=0 rs2=10 rd=1 alu=0 result=0000000a we=1 wb=0000000a\nMONITOR pc=00000004 instr=01400113 rs1=0 rs2=20 rd=2 alu=0 result=00000014 we=1 wb=00000014\nMONITOR pc=00000008 instr=002081b3 rs1=1 rs2=2 rd=3 alu=0 result=0000001e we=1 wb=0000001e\nMONITOR pc=0000000c instr=40118233 rs1=3 rs2=1 rd=4 alu=1 result=00000014 we=1 wb=00000014\nMONITOR pc=00000010 instr=0020f2b3 rs1=1 rs2=2 rd=5 alu=2 result=00000000 we=1 wb=00000000\nMONITOR pc=00000014 instr=0020e333 rs1=1 rs2=2 rd=6 alu=3 result=0000001e we=1 wb=0000001e\nMONITOR pc=00000018 instr=0020c3b3 rs1=1 rs2=2 rd=7 alu=4 result=0000001e we=1 wb=0000001e\nMONITOR pc=0000001c instr=07b00413 rs1=0 rs2=27 rd=8 alu=0 result=0000007b we=1 wb=0000007b\nMONITOR pc=00000020 instr=00209433 rs1=1 rs2=2 rd=8 alu=0 result=0000001e we=1 wb=0000001e\nSCOREBOARD ERROR: pc=00000020 reg_write expected=0 got=1\nASSERTION FAILED: unsupported instruction asserted reg_write\nFATAL: /home/waleed/riscv-verification/tb/assertions.sv:34: CPU assertion failure\n       Time: 95000  Scope: phase2_tb.assertions.fail_assertion\n"
+    }
+  ]
+}
